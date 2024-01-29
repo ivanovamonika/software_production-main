@@ -6,6 +6,7 @@ from Page2 import Page2
 from Page3 import Page3
 from Page4 import Page4
 
+
 class App(tk.Tk):
 
   ################
@@ -37,6 +38,8 @@ class App(tk.Tk):
   #Global Column names from the selected CSV file
   columnNames = []
 
+  userChoice = ""
+
   checkboxes = {}
   #############
   # FUNCTIONS #
@@ -45,6 +48,7 @@ class App(tk.Tk):
   # Show a certain page, from 1 to upwards
   def show_page(self, page_number : int):
     self.frames.get(page_number).tkraise()
+    self.frames.get(page_number).on_show()
   
   # Get a certain page, from 1 to upwards
   def get_page(self, page_number : int):
