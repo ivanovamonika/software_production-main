@@ -3,7 +3,7 @@ from tkinter import ttk
 import customtkinter as ctk
 from PIL import Image, ImageTk
 import pandas as pd
-import Page1
+
 
 class Page2(tk.Frame):
 
@@ -30,11 +30,17 @@ class Page2(tk.Frame):
   #############
 
   def proceed(self):
-    print(f"In dropdown menu, user has selected value: {self.combo.get()}")
+    if self.combo.get() == '':
+      tk.messagebox.showwarning("No Field Selected", "Please select a field to train on.")
+      return
+    else:
+      print(f"In dropdown menu, user has selected value: {self.combo.get()}")
+      self.app.userChoice = self.combo.get()
+      self.app.show_page(3)
 
-    self.app.show_page(3)
-
-
+  def on_show(self):
+    print("Showing page 2")
+    self.combo.configure(values=self.app.columnNames)
 
 
   #######################
@@ -63,11 +69,11 @@ class Page2(tk.Frame):
     # https://github.com/TomSchimansky/CustomTkinter/wiki/CTkComboBox
     self.labelDropdown = ctk.CTkLabel(master=self, text= 'fields to train', font = LARGEFONT)
     self.labelDropdown.place(relx=0.5, rely=0.28, anchor=tk.CENTER)
+    
     self.combo = ctk.CTkComboBox(master=self.frameForPage2)
     self.combo.place(relx=0.5, rely=0.37, anchor=tk.CENTER)
     # To set the options for the dropdown menu:
-    self.combo.configure(values = ['vals', 'bf'])
-
+    self.combo.configure(values = self.app.columnNames)
     # Set the selected value to empty
     self.combo.set('')
     # To get the currently selected value:
