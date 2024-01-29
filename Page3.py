@@ -1,8 +1,14 @@
 import tkinter as tk
 from tkinter import ttk
+import threading
 import customtkinter as ctk
 import pandas as pd
 from PIL import Image, ImageTk
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_squared_error, r2_score
+
+
 class Page3(tk.Frame):
 
   ##############
@@ -28,13 +34,32 @@ class Page3(tk.Frame):
   #############
 
   def proceed(self):
+    
     print(f"In dropdown menu, user has selected value: {self.combo.get()}")
-
     self.app.show_page(4)
+    
   
-  def parameters(self):
-    #we need to get the input from thr user here
+  def on_show(self):
+    #we need to get the input from the user here
+    print("showing page 3")
+    #loading the data
+    df = pd.read_csv(self.app.selectedFilePath)
+    #training on the chosen value
+    x = df.drop(self.app.userChoice, axis=1)
+    y = df[self.app.userChoice]
+    #splitting the data
+    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
+    #creating the model
+    model=RandomForestRegressor(n_estimators=100, random_state=42)
+    #training the model
+    model.fit(x_train, y_train)
+    # Make predictions
+    pred = model.predict(x_test)
+    mse = mean_squared_error(y_test, pred)
+    r2 = r2_score(y_test, pred)
 
+    print(f"Mean Squared Error: {mse}")
+    print(f"R² Score: {r2}")
 
     return
 
@@ -67,43 +92,47 @@ class Page3(tk.Frame):
     self.labelText.place(relx=0.5, rely=0.25, anchor=tk.CENTER)
 
     #text fields for parameters
-    self.textfieldExample = ctk.CTkEntry(master=self.frameForText,
+    self.textfieldZipCode = ctk.CTkEntry(master=self.frameForText,
                                          width= 220,
                                          height= 30,
                                          corner_radius=0)
-    self.textfieldExample.place(relx=0.5, rely=0.20, anchor=tk.CENTER)
+    self.textfieldZipCode.place(relx=0.5, rely=0.20, anchor=tk.CENTER)
 
     
-    self.textfieldExample = ctk.CTkEntry(master=self.frameForText,
+    self.textfieldSquareM = ctk.CTkEntry(master=self.frameForText,
                                          width= 220,
                                          height= 30,
                                          corner_radius=0)
-    self.textfieldExample.place(relx=0.5, rely=0.30, anchor=tk.CENTER)
+    self.textfieldSquareM.place(relx=0.5, rely=0.30, anchor=tk.CENTER)
 
     
-    self.textfieldExample = ctk.CTkEntry(master=self.frameForText,
+    self.textfieldAcreSize = ctk.CTkEntry(master=self.frameForText,
                                          width= 220,
                                          height= 30,
                                          corner_radius=0)
-    self.textfieldExample.place(relx=0.5, rely=0.40, anchor=tk.CENTER)
+    self.textfieldAcreSize.place(relx=0.5, rely=0.40, anchor=tk.CENTER)
 
     
-    self.textfieldExample = ctk.CTkEntry(master=self.frameForText,
+    self.textfieldNBedrooms = ctk.CTkEntry(master=self.frameForText,
                                          width= 220,
                                          height= 30,
                                          corner_radius=0)
-    self.textfieldExample.place(relx=0.5, rely=0.50, anchor=tk.CENTER)
+    self.textfieldNBedrooms.place(relx=0.5, rely=0.50, anchor=tk.CENTER)
 
     
-    self.textfieldExample = ctk.CTkEntry(master=self.frameForText,
+    self.textfieldNBathrooms = ctk.CTkEntry(master=self.frameForText,
                                          width= 220,
                                          height= 30,
                                          corner_radius=0)
-    self.textfieldExample.place(relx=0.5, rely=0.60, anchor=tk.CENTER)
+    self.textfieldNBathrooms.place(relx=0.5, rely=0.60, anchor=tk.CENTER)
     # To get the value of the textfield:
     #need to dynamically get the choice and
     #create the text fields
-    self.textfieldExample.get()
+    self.textfieldZipCode.get()
+    self.textfieldSquareM.get()
+    self.textfieldAcreSize.get()
+    self.textfieldNBedrooms.get()
+    self.textfieldNBathrooms.get()
 
     # Button to go back
     self.backButtonImg = ctk.CTkImage(Image.open('icons8-back-arrow-32.png'), size=(25,25))
