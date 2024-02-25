@@ -38,6 +38,7 @@ class Page2(tk.Frame):
       self.app.userChoice = self.combo.get()
       self.app.show_page(3)
 
+
   def on_show(self):
     print("Showing page 2")
     self.combo.configure(values=self.app.columnNames)
