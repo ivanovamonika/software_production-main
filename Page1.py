@@ -44,8 +44,11 @@ class Page1(tk.Frame):
     # Then in the page 2, you could access self.app.someThing and it would contain that same value
     # Read the CSV file using pandas
     df = pd.read_csv(self.app.selectedFilePath)
+
     # Get the column names
     self.app.columnNames = (df.columns).tolist()
+    for i in range(len(self.app.columnNames)):
+      self.app.columnNames[i] = self.app.columnNames[i].replace("_", " ")
     print(self.app.columnNames)
 
     # Example of how to switch pages
