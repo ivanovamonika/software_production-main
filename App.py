@@ -41,6 +41,10 @@ class App(tk.Tk):
   userChoice = ""
 
   checkboxes = {}
+
+  myEntries=[]
+
+  model = None
   #############
   # FUNCTIONS #
   #############
