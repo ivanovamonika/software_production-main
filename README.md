@@ -24,39 +24,37 @@ pip install pillow
 
 ```
 
+There is only one unit test for the CSV file. Run it with 
 
-Running the tests
-Explain how to run the automated tests for this system
+```
+python -m unittest discover tests
+```
+The app has tests to show to user's interface. If the user doesn't put the correct format for square meters, acre lot size, bedrooms and bathrooms. The user get's a warning message to correct the error. There's a test that checks if user's chosen zip code exists in the CSV file they have submitted.
 
-Break down into end to end tests
-Explain what these tests test and why
-
-Give an example
-And coding style tests
-Explain what these tests test and why
 
 Give an example
-Deployment
-Add additional notes about how to deploy this on a live system
+## Deployment
 
-Built With
-Dropwizard - The web framework used
-Maven - Dependency Management
-ROME - Used to generate RSS Feeds
-Contributing
-Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
+* for Windows .exe deployment - https://towardsdatascience.com/how-to-easily-convert-a-python-script-to-an-executable-file-exe-4966e253c7e9
+* for Apple .app deployment - https://py2app.readthedocs.io/en/latest/
 
-Versioning
-We use SemVer for versioning. For the versions available, see the tags on this repository.
+## Built With
+* tkinter, customtkinter - The web framework used
+* Python3 - COding language
 
-Authors
-Billie Thompson - Initial work - PurpleBooth
-See also the list of contributors who participated in this project.
+## Versioning
 
-License
+
+## Author
+
+* **Monika Ivanova** - *Initial work* - [ivanovamonika](https://github.com/ivanovamonika)
+
+## License
 This project is licensed under the MIT License - see the LICENSE.md file for details
 
-Acknowledgments
-Hat tip to anyone whose code was used
-Inspiration
-etc
+## Acknowledgments
+Project template from: 
+[kulttuuri](https://github.com/kulttuuri/python_customtkinter_multipage_app_example)
+
+## Inspiration
+School
