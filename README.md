@@ -7,7 +7,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 
 ## Prerequisites
-Coding language is Python3
+Coding language is Python3 \n
 Ensure Python 3.8 or higher is installed
 
 ### Libraries used: 
