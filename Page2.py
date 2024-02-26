@@ -30,6 +30,7 @@ class Page2(tk.Frame):
   #############
 
   def proceed(self):
+    #checking that user has selected an option
     if self.combo.get() == '':
       tk.messagebox.showwarning("No Field Selected", "Please select a field to train on.")
       return
@@ -54,25 +55,22 @@ class Page2(tk.Frame):
     NORMALFONT = app.styles.get("NORMALFONT")
     LARGEFONT = app.styles.get("LARGEFONT")
     EXTRALARGEFONT = app.styles.get("EXTRALARGEFONT")
-    MIDDLEFONT = app.styles.get("MIDDLEFONT")
     MINIFONT = app.styles.get('MINIFONT')
 
 
     # Label
-    # https://github.com/TomSchimansky/CustomTkinter/wiki/CTkLabel
     self.labelTitle1 = ctk.CTkLabel(master=self, font = EXTRALARGEFONT, text="Homestimator")
     self.labelTitle1.place(relx=0.5, rely=0.1, anchor=tk.CENTER)
     
     self.frameForPage2 = ctk.CTkFrame(master=self, width=300, height=300, corner_radius=30, bg_color='#A6BF93')
     self.frameForPage2.place(relx=0.5, rely=0.65, anchor = tk.CENTER)
 
-    # Example of a dropdown menu
-    # https://github.com/TomSchimansky/CustomTkinter/wiki/CTkComboBox
+    #Dropdown menu
     self.labelDropdown = ctk.CTkLabel(master=self, text= 'fields to train', font = LARGEFONT)
     self.labelDropdown.place(relx=0.5, rely=0.28, anchor=tk.CENTER)
-    
     self.combo = ctk.CTkComboBox(master=self.frameForPage2)
     self.combo.place(relx=0.5, rely=0.37, anchor=tk.CENTER)
+    
     # To set the options for the dropdown menu:
     self.combo.configure(values = self.app.columnNames)
     # Set the selected value to empty
