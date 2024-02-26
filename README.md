@@ -38,7 +38,7 @@ The app has tests to show to user's interface. If the user doesn't put the corre
 
 ## Built With
 * tkinter, customtkinter - The web framework used
-* Python3 - COding language
+* Python3 - Coding language
 
 ## Versioning
 
