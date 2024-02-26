@@ -7,7 +7,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 
 ## Prerequisites
-Coding language is Python3 \n
+Coding language is Python3.
 Ensure Python 3.8 or higher is installed
 
 ### Libraries used: 
@@ -15,10 +15,14 @@ tkinter, customtkinter, pandas and PIL
 
 ### Installing: 
 in Windows PowerShell:
+
+```
 pip install tk
 pip install ctk
 pip install pandas
 pip install pillow
+
+```
 
 
 Running the tests
