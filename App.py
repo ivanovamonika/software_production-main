@@ -22,7 +22,7 @@ class App(tk.Tk):
   # Custom styles for the app
   styles = {
     "EXTRALARGEFONT": ("Verdana", 35),
-    "LARGEFONT": ("Courier", 38),
+    "LARGEFONT": ("Courier", 30),
     "MIDDLEFONT": ("Courier", 25),
     "NORMALFONT": ("Courier", 15),
     "MINIFONT" : ("Courier", 9)
