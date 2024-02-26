@@ -31,13 +31,15 @@ class Page1(tk.Frame):
     #Opening a file dialog and get the selected file path
     self.app.selectedFilePath = ctk.filedialog.askopenfile(title="Open File", filetypes=(("Open a .csv file", "*.csv"), ("All files", "*.*"))).name
 
+  def isFileChosen(self):
+    return self.selectedFilePath is not None
     
   def proceed(self):
     # Check if a file has been selected
-    if self.app.selectedFilePath == "":
+    #if self.app.selectedFilePath == "":
       # Show a warning message
-      tk.messagebox.showwarning("No File Selected", "Please select a CSV file before continuing.")
-      return
+    #  tk.messagebox.showwarning("No File Selected", "Please select a CSV file before continuing.")
+    #  return
     
     # Read the CSV file using pandas
     df = pd.read_csv(self.app.selectedFilePath)
