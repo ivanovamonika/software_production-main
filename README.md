@@ -1,6 +1,6 @@
 ## Home estimator
 
-Software that takes a CSV file from a user, user input of what kind of home they are looking for (acre size, house size, number of bedrooms, number of bathrooms and zip code). User choses on what to train the predictive model. Software prints the estimated price based on the criteria given by the user.
+Software that takes a CSV file from a user and user input of what kind of home they are looking for (acre size, house size, number of bedrooms, number of bathrooms and zip code). User choses on what to train the predictive model. Software prints the estimated price based on the criteria given by the user.
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
