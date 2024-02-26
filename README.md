@@ -31,8 +31,6 @@ python -m unittest discover tests
 ```
 The app has tests to show to user's interface. If the user doesn't put the correct format for square meters, acre lot size, bedrooms and bathrooms. The user get's a warning message to correct the error. There's a test that checks if user's chosen zip code exists in the CSV file they have submitted.
 
-
-Give an example
 ## Deployment
 
 * for Windows .exe deployment - https://towardsdatascience.com/how-to-easily-convert-a-python-script-to-an-executable-file-exe-4966e253c7e9
